@@ -1,0 +1,17 @@
+h1 {
+ background-color: aquamarine;
+ font-size: x-large;
+ color: chocolate;
+ font-style: italic;
+}
+
+.hbar1 {
+ display: inline;
+ margin: 15px;
+}
+
+p{
+ color: darkgoldenrod;
+ font-size: large;
+ width: fit-content;
+}

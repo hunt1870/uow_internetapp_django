@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+    {% if prod_list %}
+    <h2>List of Products and their prices</h2>
+    <ol>
+     {% for prod in prod_list %}
+             <li>{{ prod.name }} - CAD {{ prod.price }} - Quantity {{ prod.stock }}</li>
+     {% endfor %}
+    </ol>
+    {% endif %}
+
+    <form action="/myapp/placeorder/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Place Order"/></form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+    Orders
+{% endblock %}
+{% block body_block %}
+    <h3>{{ msg }}</h3>
+    <ol>
+    {% for order in orders %}
+        <li><b>{{ order.product.name }}</b></li>
+        <ul>
+            <li>Quantity - {{ order.num_units }}</li>
+            <li>Status - {{ order.order_status }}</li>
+            <li>Ordered on - {{ order.status_date }}</li>
+            <li>Total cost - {{ order.total_cost }}</li>
+        </ul>
+    {% endfor %}
+    </ol>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+    {{ product.name }} details
+{% endblock %}
+{% block body_block %}
+    {% if product %}
+    <h2>{{ product.name }}</h2>
+    {% endif %}
+    <h4>{{ product.interested }} number of people are interested in this product </h4>
+    <p style="color: green">Price - {{ product.price }}</p>
+    <br>
+    <br>
+    {{ msg }}
+    <form action="/myapp/product/{{ product.id }}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" /></form>
+{% endblock %}

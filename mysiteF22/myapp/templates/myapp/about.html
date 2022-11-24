@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+    About the app
+{% endblock %}
+{% block body_block %}
+    <p>This is an Online Store APP.</p>
+    {% if request.COOKIES.about_visits is not None %}
+        <p>Number of times the ABOUT page has been visited so far - {{ request.COOKIES.about_visits }}</p>
+    {% endif %}
+{% endblock %}
