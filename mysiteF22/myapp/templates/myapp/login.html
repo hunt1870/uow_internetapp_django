@@ -16,4 +16,7 @@
         </form>
     </div>
 {% endblock %}
-{% block login_urls %}<b><a href="{% url 'myapp:register' %}">Register here</a></b>{% endblock %}
+{% block login_urls %}
+    <b><a href="{% url 'myapp:register' %}">Register here</a></b>
+    <b><a href="{% url 'password_reset' %}">Forgot Password</a></b>
+{% endblock %}
