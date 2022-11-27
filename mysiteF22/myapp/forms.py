@@ -20,11 +20,11 @@ class InterestForm(forms.Form):
 class RegisterForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['username', 'first_name', 'last_name', 'password', 'company', 'shipping_address',
+        fields = ['username', 'email', 'first_name', 'last_name', 'password', 'company', 'shipping_address',
                   'city', 'province', 'interested_in', 'image']
         widgets = {'interest_in': forms.CheckboxSelectMultiple()}
         labels = {'first_name': 'First name', 'last_name': 'Last name', 'shipping_address': 'Shipping address',
-                  'interested_in': 'interested in', 'image': 'Profile picture'}
+                  'interested_in': 'Interested in', 'image': 'Profile picture'}
 
 # class User(forms.Form):
 #     username = forms.CharField(label="Username", max_length=30)
