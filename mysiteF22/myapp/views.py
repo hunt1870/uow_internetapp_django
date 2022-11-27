@@ -26,7 +26,7 @@ def about(request):
     else:
         x = int(x)
         x += 1
-    response.set_cookie(key='about_visits', value=x, max_age=20)
+    response.set_cookie(key='about_visits', value=x, max_age=30)
     return response
 
 
@@ -108,7 +108,7 @@ def user_login(request):
                 login(request, user)
                 current_datetime = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
                 request.session['last_login'] = current_datetime
-                request.session.set_expiry(30)
+                request.session.set_expiry(3600)
                 if last_url == "http://localhost:8000/myapp/orders/":
                     return HttpResponseRedirect(reverse('myapp:orders'))
                 else:

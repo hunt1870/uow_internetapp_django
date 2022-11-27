@@ -2,6 +2,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
+from django.contrib import admin
 from django.utils import timezone
 
 
@@ -31,6 +32,7 @@ class Product(models.Model):
 
     def refill(self):
         self.stock += 100
+
 
 
 class Client(User):
