@@ -2,13 +2,13 @@
 {% block body_block %}
     {% if cat_list %}
     <h2>List of Categories</h2>
-    <ol>
-     {% for cat in cat_list %}
-    <li><a style="text-decoration: none" href="{%  url 'myapp:detail' cat.id %}">{{ cat.name }}</a></li>
-     {% endfor %}
-    </ol>
+        <div style="margin-right: 800px" class="list-group">
+            {% for cat in cat_list %}
+            <a class="list-group-item list-group-item-action" href="{%  url 'myapp:detail' cat.id %}">{{ cat.name }}</a>
+            {% endfor %}
+        </div>
     {% else %}
-    <strong>There are no available categories!</strong>
+        <strong>There are no available categories!</strong>
     {% endif %}
     {% if request.session.last_login %}
         <p>Last login - {{ request.session.last_login }}</p>

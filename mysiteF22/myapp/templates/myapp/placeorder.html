@@ -12,6 +12,6 @@
     <form action="/myapp/placeorder/" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Place Order"/></form>
+    <input type="submit" class="btn btn-primary" value="Place Order"/></form>
 
 {% endblock %}

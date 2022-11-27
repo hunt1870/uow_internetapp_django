@@ -2,13 +2,14 @@
 {% block body_block %}
     {% if prod_list %}
     <h2>List of Products that are available</h2>
-    <ol>
-     {% for prod in prod_list %}
+    <div style="margin-right: 800px" class="list-group">
+        {% for prod in prod_list %}
          {% if prod.available %}
-             <li><a style="text-decoration: none" href="{%  url 'myapp:product_detail' prod.id %}">{{ prod.name }}</a></li>
+             <a class="list-group-item list-group-item-action" href="{%  url 'myapp:product_detail' prod.id %}">{{ prod.name }}</a>
          {% endif %}
      {% endfor %}
-    </ol>
-    <button><a href="{% url 'myapp:place_order' %}">Place an order</a></button>
+    </div>
+        <br>
+    <button class="btn btn-primary"><a style="color: white" href="{% url 'myapp:place_order' %}">Place an order</a></button>
     {% endif %}
 {% endblock %}

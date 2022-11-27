@@ -13,6 +13,6 @@
     {{ msg }}
     <form action="/myapp/product/{{ product.id }}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" /></form>
+    <table>{{ form.as_table }}</table>
+    <input type="submit" value="Submit" class="btn btn-primary" /></form>
 {% endblock %}
