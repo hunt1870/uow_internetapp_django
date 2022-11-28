@@ -16,6 +16,9 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -28,6 +31,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DATABASE_ENGINE = 'sqlite3'
+DATABASE_NAME = os.path.join(SITE_ROOT, 'dev.db')
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
 
 # Application definition
 
