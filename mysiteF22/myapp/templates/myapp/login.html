@@ -30,7 +30,7 @@
                             <b>Hello {{ request.user.first_name }}</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{% url 'myapp:orders' %}">Check my orders</a>
+                            <a class="dropdown-item" href="{% url 'myapp:orders' %}">My orders</a>
                             <a class="dropdown-item" href="/myapp/logout/">Logout</a>
                         </div>
                     {% else %}

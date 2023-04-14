@@ -18,7 +18,6 @@ def index(request):
 
 
 def about(request):
-    response = HttpResponse()
     response = render(request, 'myapp/about.html')
     x = request.COOKIES.get('about_visits')
     if x is None:
@@ -72,8 +71,7 @@ def product_detail(request, prod_id):
         if form.is_valid():
             product.interested += int(form.cleaned_data['interested'])
             product.save()
-            response = redirect('/myapp/')
-            return response
+            return redirect('/myapp/')
     else:
         if product.available:
             msg = 'Product is currently available!!! :)'
@@ -87,8 +85,7 @@ def user_register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            client = form.save(commit=False)
-            client.save()
+            form.save()
             return render(request, 'myapp/login.html')
         else:
             return HttpResponse('Registration was unsuccessful')
@@ -109,7 +106,7 @@ def user_login(request):
                 current_datetime = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
                 request.session['last_login'] = current_datetime
                 request.session.set_expiry(3600)
-                if last_url == "http://localhost:8000/myapp/orders/":
+                if last_url == "http://localhost:8000/myapp/myorders/":
                     return HttpResponseRedirect(reverse('myapp:orders'))
                 else:
                     return HttpResponseRedirect(reverse('myapp:index'))
@@ -127,8 +124,6 @@ def user_logout(request):
 
 
 def myorders(request):
-    msg = ''
-    print(request.user.username)
     if request.user.is_authenticated:
         try:
             client = Client.objects.get(username=request.user.username)
